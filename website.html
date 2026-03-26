@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="website.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Ilmiah dan Pustaka ROHIS FMIPA</title>
+</head>
+<body>
+    <script src="website.js"></script>
+
+    <div class="p3r-container">
+        <nav class="p3r-menu">
+            <div class="menu-item" onclick="openMenu('TATA TERTIB')"><span data-text="TATA TERTIB">TATA TERTIB</span></div>
+            <div class="menu-item" onclick="openMenu('PEMINJAMAN BUKU')"><span data-text="PEMINJAMAN BUKU">PEMINJAMAN BUKU</span></div>
+            <div class="menu-item" onclick="openMenu('FAQ')"><span data-text="FAQ">FAQ</span></div>
+            <div class="menu-item" onclick="openMenu('TENTANG KAMI')"><span data-text="TENTANG KAMI">TENTANG KAMI</span></div>
+        </nav>
+    </div>
+
+    <form id="loan-form" class="p3r-form">
+    <div class="input-group">
+        <label>NAMA LENGKAP</label>
+        <input type="text" id="nama" placeholder="Masukkan Nama..." required>
+    </div>
+    <div class="input-group">
+        <label>PROGRAM STUDI</label>
+        <input type="text" id="prodi" placeholder="Contoh: Teknik Informatika" required>
+    </div>
+    <div class="input-group">
+        <label>NIM</label>
+        <input type="text" id="nim" placeholder="Nomor Induk Mahasiswa" required>
+    </div>
+    <div class="input-group">
+        <label>TANGGAL PEMINJAMAN</label>
+        <input type="date" id="tgl_pinjam" required>
+    </div>
+    <div class="input-group">
+        <label>JUDUL BUKU</label>
+        <input type="text" id="buku" placeholder="Judul Buku Yang Dipinjam" required>
+    </div>
+
+    <button type="submit" class="submit-btn">KONFIRMASI DATA</button>
+    </form>
+
+    <div id="content-screen" class="content-overlay">
+        <div class="content-box">
+            <h1 id="content-title">TATA TERTIB</h1>
+            <hr style="border: 2px solid var(--p3-bg-dark); margin: 20px 0;">
+            <div id="content-body" style="font-size: 1.2rem; line-height: 1.6;">
+            </div>
+        <button class="back-btn" onclick="closeContent()">KEMBALI</button>
+    </div>
+ </div>
+
+    <div class="halftone-overlay"></div>
+    <div class="glass-shard"></div>
+    
+    <div class="reload-footer">ROHIS</div>
+
+</div>
+</body>
+</html>

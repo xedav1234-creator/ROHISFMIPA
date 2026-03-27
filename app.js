@@ -29,7 +29,7 @@ function handleFormSubmit(e) {
         mode: 'no-cors'
     })
     .then(() => {
-        alert("Terima Kasih Sudah Meeminjam, Selamat Membaca!.");
+        alert("Terima Kasih Sudah Meminjam, Selamat Membaca!.");
         closeContent(); 
     })
     .catch(err => {

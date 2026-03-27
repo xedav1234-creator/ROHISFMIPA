@@ -159,10 +159,12 @@ body, html {
     max-width: 900px;
     border-left: 15px solid var(--p3-green-neon); /* Aksen garis hijau di samping */
     color: var(--p3-bg-dark);
-    
-    /* Efek miring saat masuk */
     transform: skewX(-10deg) translateX(150%);
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    max-height: 85vh;    /* Batasi tinggi maksimal 85% dari tinggi layar */
+    overflow-y: auto;    /* Munculkan scroll jika konten melebihi max-height */
+    overflow-x: hidden;
 }
 
 /* Saat aktif, kotak meluncur ke posisi tengah */
@@ -294,4 +296,133 @@ body, html {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   RESPONSIVE STRATEGY (MOBILE FIRST / ADAPTIVE)
+   ============================================================ */
+
+/* --- TABLET & LAPTOP KECIL (Max 1024px) --- */
+@media (max-width: 1024px) {
+    .p3r-menu {
+        padding-left: 5%;
+        transform: rotate(-2deg); /* Kurangi rotasi */
+    }
+
+    .menu-item {
+        font-size: 1.8rem;
+        padding: 15px 50px;
+    }
+
+    .content-box {
+        width: 90%;
+        padding: 40px;
+    }
+}
+
+/* --- SMARTPHONE PORTRAIT (Max 768px) --- */
+@media (max-width: 768px) {
+    /* Menu Utama */
+    .p3r-menu {
+        transform: rotate(0deg); /* Normalkan posisi agar tidak kepotong */
+        padding-left: 0;
+        align-items: center; /* Menu jadi di tengah layar */
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu-item {
+        font-size: 1.3rem;
+        padding: 12px 30px;
+        width: 85%; /* Agar seragam lebarnya di HP */
+        text-align: center;
+        box-shadow: -5px 5px 0px var(--p3-green-shadow);
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%); /* Sudut lebih tajam untuk layar kecil */
+    }
+
+    .menu-item:hover {
+        transform: translateX(10px) scale(1.02); /* Kurangi intensitas gerak hover */
+    }
+
+    /* Konten Overlay (FAQ / Form / About) */
+    .content-box {
+        width: 95%;
+        padding: 25px 20px;
+        transform: skewX(0deg) translateX(150%); /* Hapus kemiringan agar teks tegak */
+        border-left: 8px solid var(--p3-green-neon);
+        max-height: 90vh;
+    }
+
+    .content-overlay.active .content-box {
+        transform: skewX(0deg) translateX(0); /* Masuk tanpa miring */
+    }
+
+    .content-box h1, 
+    .content-box p, 
+    .content-box button,
+    .content-box .p3r-form {
+        transform: skewX(0deg); /* Netralkan teks agar mudah dibaca */
+    }
+
+    /* Footer Dekoratif */
+    .reload-footer {
+        font-size: 2.5rem;
+        right: 15px;
+        bottom: 15px;
+        letter-spacing: 5px;
+    }
+}
+
+/* --- SMARTPHONE KECIL (Max 480px) --- */
+@media (max-width: 480px) {
+    .menu-item {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+
+    .content-box h1 {
+        font-size: 1.5rem; /* Perkecil judul agar tidak memakan tempat */
+    }
+
+    .faq-text, .about-text {
+        font-size: 0.85rem;
+    }
+
+    .back-btn {
+        width: 100%; /* Tombol kembali jadi lebar penuh agar mudah di-tap */
+        padding: 12px;
+    }
+}
+
+/* --- MODE LANDSCAPE HP (Khusus jika HP diputar miring) --- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .p3r-menu {
+        flex-direction: row; /* Menu berjajar ke samping agar tidak tertutup layar */
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .menu-item {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .reload-footer {
+        display: none; /* Sembunyikan dekorasi agar layar lega */
+    }
+}
+
+/* Custom Scrollbar untuk .content-box */
+.content-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.content-box::-webkit-scrollbar-thumb {
+    background: var(--p3-green-neon);
+    border-radius: 10px;
 }

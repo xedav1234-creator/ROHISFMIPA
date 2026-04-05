@@ -54,10 +54,12 @@ function openMenu(menuName) {
             document.getElementById('content-body').innerHTML = `
                 <ul>
                     <li>Dilarang merusak fasilitas perpustakaan.</li>
-                    <li>Wajib menjaga ketenangan di area sekitar.</li>
-                    <li>Buku yang rusak wajib diperbaiki/diganti.</li>
-                    <li>Pengembalian buku yang dipinjam harus tepat waktu.</li>
+                    <li>Pengunjung hanya diperbolehkan meminjam maksimal 1 buku dalam sepekan.</li>
+                    <li>Jika buku mengalami kerusakan atau hilang, peminjam wajib menggantinya dengan buku yang sama atau setara.</li>
+                    <li>Pengembalian buku yang dipinjam harus tepat waktu, jika terlambat maka akan dikenakan sanksi denda Rp.1.000 per hari.</li>
                     <li>Peminjaman buku maksimal 1 pekan.</li>
+                    <li>Buku yang dipinjam tidak boleh dipinjamkan kepada pihak lain yang bukan peminjam resmi.</li>
+                    <li>Pengembalian buku dilakukan dengan mengirimkan bukti foto ke cp yang tertera.</li>
                 </ul>`;
         }
 
@@ -77,6 +79,13 @@ function openMenu(menuName) {
                         <p class="faq-text">
                             Durasi peminjaman maksimal adalah 7 hari kerja dan dapat diperpanjang 
                             satu kali jika buku tidak sedang dipesan oleh orang lain.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-subtitle">Kepada siapa saya dapat bertanya mengenai perpustakaan?</h3>
+                        <p class="faq-text">
+                            Jika terdapat pertanyaan maka dapat menghubungi 0852-9354-3665 aka Alifia.
                         </p>
                     </div>
                 </div>
